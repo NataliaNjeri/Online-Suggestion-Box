@@ -8,8 +8,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-  <!-- Laravel: <link rel="stylesheet" href="{{ asset('css/style.css') }}"> -->
-  <link rel="stylesheet" href="css/style.css">
+  
+  @vite('resources/css/main.css')
 </head>
 <body>
  
@@ -62,7 +62,7 @@
  
           <!-- LOG IN -->
           <form class="panel panel-login" method="POST" action="/login">
-            <!-- Laravel: @csrf -->
+            
             <h2>Welcome back</h2>
             <p class="panel-note">Students, staff and admins all log in here.</p>
  
@@ -126,7 +126,7 @@
                 <span>Your department</span>
                 <select name="department_id">
                   <option value="">Select a department</option>
-                  <!-- Laravel: @foreach($departments as $d) <option value="{{ $d->id }}">{{ $d->name }}</option> @endforeach -->
+                  
                   <option value="1">Academic Registry</option>
                   <option value="2">Finance</option>
                   <option value="3">Library</option>
