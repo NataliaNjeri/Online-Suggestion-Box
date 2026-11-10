@@ -8,8 +8,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<<<<<<< HEAD
   
   @vite('resources/css/main.css')
+=======
+  @vite('resources/css/main.css')
+  
+>>>>>>> 99a6a4447e505a01c1c2a2a4eee99262d1b18439
 </head>
 <body>
  
