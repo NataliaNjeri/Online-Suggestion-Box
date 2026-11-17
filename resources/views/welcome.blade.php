@@ -61,7 +61,19 @@
             <label for="mode-login">Log in</label>
             <label for="mode-register">Create account</label>
           </div>
- 
+ @if ($errors->any())
+  <div class="alert alert-error">
+    <ul>
+      @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+      @endforeach
+    </ul>
+  </div>
+@endif
+
+@if (session('status'))
+  <div class="alert alert-success">{{ session('status') }}</div>
+@endif
           <!-- LOG IN -->
           <form class="panel panel-login" method="POST" action="/login">
             
@@ -88,7 +100,7 @@
  
           <!-- REGISTER -->
           <form class="panel panel-register" method="POST" action="/register">
-            <!-- Laravel: @csrf -->
+             @csrf
             <h2>Create your account</h2>
             <p class="panel-note">Choose your role first. The form adjusts to match.</p>
  
