@@ -7,6 +7,8 @@ use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class User extends Authenticatable
 {
@@ -19,9 +21,12 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $fillable = [
-        'name',
-        'email',
-        'password',
+    'name',
+    'email',
+    'password',
+    'role',
+    'department_id',
+    'is_approved',
     ];
 
     /**
@@ -46,4 +51,18 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function department(): BelongsTo
+    {
+    return $this->belongsTo(Department::class);
+    }
+
+    public function suggestions(): HasMany
+    {
+    return $this->hasMany(Suggestion::class);
+    }
+
+    public function isStudent(): bool { return $this->role === 'student'; }
+    public function isStaff(): bool   { return $this->role === 'staff'; }
+    public function isAdmin(): bool   { return $this->role === 'admin'; }
 }
